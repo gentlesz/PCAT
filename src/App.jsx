@@ -10,14 +10,16 @@ function App() {
             <ul className="nav-links">
               <li><a href="#origin">Origin</a></li>
               <li><a href="#moment">The Moment</a></li>
-              <li><a href="#why">Why It Matters</a></li>
-              <li><a href="#community">The Run</a></li>
+              <li><a href="#historic">Historic Cat</a></li>
+              <li><a href="#run">The Run</a></li>
             </ul>
           </nav>
         </div>
       </header>
 
       <main>
+
+        {/* ── 1. Hero ── */}
         <section className="hero">
           <div className="neural-bg" aria-hidden="true">
             <div className="node n1" /><div className="node n2" /><div className="node n3" />
@@ -25,28 +27,26 @@ function App() {
             <div className="edge e1" /><div className="edge e2" /><div className="edge e3" />
           </div>
           <div className="container hero-copy">
-              <p className="eyebrow">✈ 35,000 ft · En Route to Austin</p>
-              <h1>
-                The First<br /><span>Mind-Made</span><br />Meme
-              </h1>
-              <p className="hero-sub">
-                Created mid-flight by <strong>Noland Arbaugh</strong> — the first
-                Neuralink human implant recipient — using only his thoughts.
-              </p>
-              <blockquote className="quote">
-                "Pretty sure this is a first. Not long ago this would have been
-                impossible."
-                <cite>— Noland Arbaugh</cite>
-              </blockquote>
-              <div className="cta-row">
-                <a className="btn btn-primary" href="#moment">Read the Story</a>
-                <a className="btn btn-ghost" href="#community">Join the Community</a>
-              </div>
+            <p className="eyebrow">✈ 35,000 ft · En Route to Austin</p>
+            <h1>The First<br /><span>Mind-Made</span><br />Meme</h1>
+            <p className="hero-sub">
+              Created mid-flight by <strong>Noland Arbaugh</strong> — the first
+              Neuralink human implant recipient — using only his thoughts.
+            </p>
+            <blockquote className="quote">
+              "Pretty sure this is a first. Not long ago this would have been impossible."
+              <cite>— Noland Arbaugh</cite>
+            </blockquote>
+            <div className="cta-row">
+              <a className="btn btn-primary" href="#origin">Read the Story</a>
+              <a className="btn btn-ghost" href="#run">Join the Community</a>
+            </div>
           </div>
         </section>
 
+        {/* ── 2. Origin ── */}
         <section id="origin" className="section">
-          <div className="container">
+          <div className="container text-block">
             <h2>Origin Story</h2>
             <p>
               <strong>Noland Arbaugh</strong> became the first person in the world to receive a
@@ -64,51 +64,43 @@ function App() {
           </div>
         </section>
 
-        <section id="moment" className="section section-alt">
-          <div className="container cards-grid">
-            <article className="info-card">
-              <div className="card-icon">🧠</div>
-              <h3>Neuralink Implant</h3>
-              <p>
-                The N1 chip interfaces directly with the motor cortex, translating
-                neural intent into digital commands — no physical movement required.
-              </p>
-            </article>
-            <article className="info-card">
-              <div className="card-icon">✈</div>
-              <h3>Mid-Flight Creation</h3>
-              <p>
-                At cruising altitude en route to Austin, Noland used his implant
-                to interact with the internet — a world first at 35,000 ft.
-              </p>
-            </article>
-            <article className="info-card">
-              <div className="card-icon">🐱</div>
-              <h3>Pilot Cat is Born</h3>
-              <p>
-                $PCAT — Pilot Cat — emerged as a meme capturing the moment:
-                a cat piloting the plane, a human piloting the future with
-                nothing but his mind.
-              </p>
-            </article>
+        {/* ── 3. The Moment — 3 cards ── */}
+        <section id="moment" className="section">
+          <div className="container">
+            <h2>The Moment</h2>
+            <div className="cards-grid">
+              <article className="info-card">
+                <div className="card-icon">🧠</div>
+                <h3>Neuralink Implant</h3>
+                <p>
+                  The N1 chip interfaces directly with the motor cortex, translating
+                  neural intent into digital commands — no physical movement required.
+                </p>
+              </article>
+              <article className="info-card">
+                <div className="card-icon">✈</div>
+                <h3>Mid-Flight Creation</h3>
+                <p>
+                  At cruising altitude en route to Austin, Noland used his implant
+                  to interact with the internet — a world first at 35,000 ft.
+                </p>
+              </article>
+              <article className="info-card">
+                <div className="card-icon">🐱</div>
+                <h3>Pilot Cat is Born</h3>
+                <p>
+                  $PCAT emerged as a meme capturing the moment: a cat piloting the
+                  plane, a human piloting the future with nothing but his mind.
+                </p>
+              </article>
+            </div>
           </div>
         </section>
 
-        <section id="why" className="section">
-          <div className="container stat-wrap">
-            <h2>Why It Matters</h2>
-            <p>
-              This wasn't just a meme. It was a proof-of-concept broadcast to
-              the world — that the boundary between human thought and digital
-              action had been crossed, at altitude, casually, irreversibly.
-            </p>
-            <p>
-              Most meme coins are built on nothing. $PCAT is built on one of the
-              most documented, verifiable, and genuinely astonishing moments in
-              the history of human-computer interaction. The cat exists. The
-              flight exists. The Neuralink exists. The quote exists. Every part
-              of this story is real.
-            </p>
+        {/* ── 4. Timeline ── */}
+        <section className="section">
+          <div className="container text-block">
+            <h2>How It Happened</h2>
             <div className="timeline">
               <div className="tl-item">
                 <span className="tl-dot" />
@@ -143,10 +135,9 @@ function App() {
                 <div className="tl-body">
                   <strong>No proper run. Yet.</strong>
                   <p>
-                    Despite the story being one of the most culturally significant
-                    moments of the decade, $PCAT has never had its moment on-chain.
-                    No proper launch. No real community push. A historic cat,
-                    sitting quietly, waiting.
+                    Despite being one of the most significant cultural moments of the
+                    decade, $PCAT has never had its moment on-chain. No proper launch.
+                    No real community push. A historic cat, sitting quietly, waiting.
                   </p>
                 </div>
               </div>
@@ -154,15 +145,15 @@ function App() {
           </div>
         </section>
 
-        <section className="section">
-          <div className="container stat-wrap">
+        {/* ── 5. Historic Cat ── */}
+        <section id="historic" className="section">
+          <div className="container text-block">
             <h2>A Historic Cat</h2>
             <p>
               Every great memecoin needs a reason to exist beyond the ticker.
-              $PCAT has one of the strongest reasons in the space — a cat that
-              was literally summoned into existence by a paralysed man's thoughts,
-              mid-air, using a chip in his brain, in a moment that made global
-              headlines.
+              $PCAT has one of the strongest in the space — a cat literally
+              summoned into existence by a paralysed man's thoughts, mid-air,
+              using a chip in his brain, in a moment that made global headlines.
             </p>
             <p>
               Doge had a Shiba. Pepe had a frog. $PCAT has the first creature
@@ -171,14 +162,17 @@ function App() {
               new era of human capability.
             </p>
             <p>
-              And somehow, the coin has never had a proper run. No organised
-              community. No real launchpad. No moment where the internet looked
-              at the lore and said — this deserves to go. That changes now.
+              Most meme coins are built on nothing. $PCAT is built on one of the
+              most documented, verifiable, and genuinely astonishing moments in
+              the history of human-computer interaction. The cat exists. The
+              flight exists. The Neuralink exists. The quote exists. Every part
+              of this story is real — and somehow, the coin has never had its run.
             </p>
           </div>
         </section>
 
-        <section id="community" className="section section-alt">
+        {/* ── 6. CTA ── */}
+        <section id="run" className="section">
           <div className="container join-box">
             <h2>The Run It Never Had</h2>
             <p>
@@ -197,6 +191,7 @@ function App() {
             </form>
           </div>
         </section>
+
       </main>
 
       <footer className="site-footer">

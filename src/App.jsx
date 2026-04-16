@@ -28,6 +28,7 @@ function App() {
               <li><a href="#story">Origin</a></li>
               <li><a href="#moment">The Moment</a></li>
               <li><a href="#timeline">Timeline</a></li>
+              <li><a href="https://t.me/" target="_blank" rel="noreferrer">Telegram</a></li>
             </ul>
           </nav>
         </div>
@@ -55,6 +56,7 @@ function App() {
             </blockquote>
             <div className="cta-row reveal">
               <a className="btn btn-primary" href="#story">Read the Story</a>
+              <a className="btn btn-ghost" href="https://x.com/ModdedQuad/status/1803673635250642987" target="_blank" rel="noreferrer">The Tweet</a>
             </div>
           </div>
         </section>

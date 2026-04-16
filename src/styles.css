@@ -13,6 +13,18 @@ body {
   margin-inline: auto;
 }
 
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ── Header ── */
 .site-header {
   position: sticky;
@@ -125,6 +137,7 @@ body {
   color: #aaaaaa;
   max-width: 50ch;
   margin-top: 0;
+  font-size: 1.05rem;
 }
 
 .hero-sub strong { color: #ffffff; }
@@ -170,9 +183,46 @@ body {
   color: #000000;
 }
 
-.btn-ghost {
-  color: #888888;
+.btn-ghost { color: #888888; }
+
+/* ── Story section (centred, full viewport) ── */
+.story-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0;
 }
+
+.story-inner {
+  max-width: 780px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.story-label {
+  color: #555555;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  margin-bottom: 3rem;
+}
+
+.story-text {
+  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+  color: #aaaaaa;
+  line-height: 1.75;
+  margin: 0 0 2.2rem;
+  max-width: 68ch;
+  margin-inline: auto;
+}
+
+.story-text strong { color: #ffffff; }
+
+/* stagger each paragraph */
+.story-text:nth-child(2) { transition-delay: 0s; }
+.story-text:nth-child(3) { transition-delay: 0.12s; }
+.story-text:nth-child(4) { transition-delay: 0.24s; }
+.story-text:nth-child(5) { transition-delay: 0.36s; }
 
 /* ── Sections ── */
 .section { padding: 5rem 0; }
@@ -190,11 +240,10 @@ body {
   max-width: 64ch;
   margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 .section p strong { color: #ffffff; }
-
-.section-alt { }
 
 .text-block { max-width: 720px; }
 
@@ -273,45 +322,8 @@ body {
 .tl-body p {
   margin: 0;
   font-size: 0.9rem;
+  color: #aaaaaa;
 }
-
-/* ── CTA ── */
-.join-box { max-width: 560px; }
-
-.join-form {
-  display: flex;
-  justify-content: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-  margin-top: 1.2rem;
-}
-
-.join-form input {
-  min-width: 230px;
-  border-radius: 999px;
-  border: 1px solid #333333;
-  background: #000000;
-  color: #ffffff;
-  padding: 0.75rem 1rem;
-  font-size: 0.9rem;
-  outline: none;
-}
-
-.join-form input:focus { border-color: #ffffff; }
-
-.join-form button {
-  border: none;
-  border-radius: 999px;
-  padding: 0.75rem 1.3rem;
-  font-weight: 700;
-  font-size: 0.9rem;
-  background: #ffffff;
-  color: #000000;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.join-form button:hover { opacity: 0.75; }
 
 /* ── Footer ── */
 .site-footer { padding: 1.4rem 0; }
@@ -342,4 +354,6 @@ body {
   }
 
   .hero { padding-top: 4.5rem; }
+
+  .story-text { font-size: 1.1rem; }
 }

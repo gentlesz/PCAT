@@ -6,34 +6,43 @@ function App() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const video = document.createElement('video');
-    video.preload = 'auto';
-    video.src = '/stuff/11.mp4';
-
-    let minDone = false;
+    let frame;
+    let sim = 0;
     let videoDone = false;
+    let pageDone = false;
+
+    // Animate bar immediately from 0 towards 90, easing and slowing down
+    const animate = () => {
+      sim += (90 - sim) * 0.025;
+      setProgress(Math.min(Math.round(sim), 90));
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
 
     const tryComplete = () => {
-      if (minDone && videoDone) {
+      if (videoDone && pageDone) {
+        cancelAnimationFrame(frame);
         setProgress(100);
         setTimeout(() => setHiding(true), 400);
         setTimeout(() => setLoaded(true), 1000);
       }
     };
 
-    setTimeout(() => { minDone = true; tryComplete(); }, 1800);
-
-    video.addEventListener('progress', () => {
-      if (video.buffered.length > 0 && video.duration) {
-        const pct = (video.buffered.end(video.buffered.length - 1) / video.duration) * 100;
-        setProgress(Math.min(Math.round(pct), 95));
-      }
-    });
-
+    // Track video readiness
+    const video = document.createElement('video');
+    video.preload = 'auto';
+    video.src = '/stuff/11.mp4';
     video.addEventListener('canplaythrough', () => { videoDone = true; tryComplete(); });
     video.addEventListener('error', () => { videoDone = true; tryComplete(); });
 
-    return () => { video.src = ''; };
+    // Track full page load
+    if (document.readyState === 'complete') {
+      pageDone = true;
+    } else {
+      window.addEventListener('load', () => { pageDone = true; tryComplete(); }, { once: true });
+    }
+
+    return () => { cancelAnimationFrame(frame); video.src = ''; };
   }, []);
 
   useEffect(() => {

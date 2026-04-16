@@ -1,26 +1,24 @@
 :root {
-  --bg: #06090f;
-  --surface: #0d1525;
-  --surface-soft: #111e33;
-  --text: #e8f0ff;
-  --muted: #7a94bb;
-  --accent: #1e90ff;
-  --accent-2: #00d4ff;
+  --bg: #04060e;
+  --surface: #0a0f1e;
+  --surface-soft: #0e1428;
+  --text: #e6eeff;
+  --muted: #6b84b0;
+  --accent: #7c6dff;
+  --accent-2: #00e5ff;
   --accent-warm: #ff9f1c;
-  --border: rgba(255, 255, 255, 0.1);
+  --accent-green: #39f5a0;
+  --border: rgba(255, 255, 255, 0.09);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   color: var(--text);
   font-family: "Inter", system-ui, -apple-system, sans-serif;
-  background: radial-gradient(ellipse at 50% 0%, #0a1a3a 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 80%, #041020 0%, transparent 50%), var(--bg);
-  line-height: 1.6;
+  background: var(--bg);
+  line-height: 1.65;
 }
 
 .container {
@@ -33,8 +31,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  backdrop-filter: blur(12px);
-  background: rgba(6, 9, 15, 0.8);
+  backdrop-filter: blur(14px);
+  background: rgba(4, 6, 14, 0.82);
   border-bottom: 1px solid var(--border);
 }
 
@@ -42,7 +40,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 68px;
+  min-height: 66px;
 }
 
 .brand {
@@ -50,14 +48,14 @@ body {
   text-decoration: none;
   font-family: "Orbitron", sans-serif;
   font-weight: 800;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.06rem;
   font-size: 1.1rem;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.2rem;
+  gap: 1.3rem;
   padding: 0;
   margin: 0;
 }
@@ -65,78 +63,119 @@ body {
 .nav-links a {
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   transition: color 0.2s;
 }
 
-.nav-links a:hover {
-  color: var(--text);
-}
+.nav-links a:hover { color: var(--text); }
 
 /* ── Hero ── */
 .hero {
   position: relative;
-  padding: 6rem 0 4.5rem;
+  padding: 6rem 0 5rem;
   overflow: hidden;
 }
 
-.runway-lines {
+/* Neural network background decoration */
+.neural-bg {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  width: 60px;
-  opacity: 0.18;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-.runway-lines span {
-  display: block;
-  width: 6px;
-  height: 80px;
-  background: var(--accent-warm);
-  border-radius: 4px;
+.node {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.18;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.n1 { width: 10px; height: 10px; top: 18%; left: 8%; animation-delay: 0s; }
+.n2 { width: 7px;  height: 7px;  top: 45%; left: 72%; animation-delay: 1.2s; }
+.n3 { width: 12px; height: 12px; top: 72%; left: 20%; animation-delay: 0.6s; }
+.n4 { width: 6px;  height: 6px;  top: 30%; left: 55%; animation-delay: 2s; }
+.n5 { width: 9px;  height: 9px;  top: 80%; left: 80%; animation-delay: 1.6s; }
+
+.edge {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.1;
+}
+
+.e1 { width: 260px; top: 23%; left: 5%; transform: rotate(30deg); }
+.e2 { width: 200px; top: 50%; left: 60%; transform: rotate(-20deg); }
+.e3 { width: 300px; top: 76%; left: 15%; transform: rotate(10deg); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.18; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(1.4); }
 }
 
 .hero-grid {
   display: grid;
-  gap: 2rem;
+  gap: 2.4rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   align-items: center;
+  position: relative;
 }
 
 .eyebrow {
-  color: var(--accent-2);
+  color: var(--accent-warm);
   font-weight: 700;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.07rem;
   text-transform: uppercase;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   margin-bottom: 0.5rem;
 }
 
 .hero h1 {
-  margin: 0.2rem 0 0.8rem;
+  margin: 0.25rem 0 0.8rem;
   font-family: "Orbitron", sans-serif;
-  font-size: clamp(2rem, 6vw, 3.4rem);
-  line-height: 1.18;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1.15;
 }
 
 .hero h1 span {
-  color: var(--accent);
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.hero-copy p {
-  max-width: 52ch;
+.hero-sub {
   color: var(--muted);
+  max-width: 50ch;
   margin-top: 0;
+}
+
+.quote {
+  border-left: 3px solid var(--accent);
+  margin: 1.5rem 0;
+  padding: 0.7rem 1rem;
+  background: rgba(124, 109, 255, 0.06);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 0.4rem;
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--accent-2);
+  font-weight: 600;
 }
 
 .cta-row {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
-  margin-top: 1.6rem;
+  margin-top: 1.5rem;
 }
 
 .btn {
@@ -149,14 +188,11 @@ body {
   transition: opacity 0.2s, transform 0.15s;
 }
 
-.btn:hover {
-  opacity: 0.88;
-  transform: translateY(-1px);
-}
+.btn:hover { opacity: 0.86; transform: translateY(-1px); }
 
 .btn-primary {
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  color: #020d1f;
+  color: #04060e;
 }
 
 .btn-ghost {
@@ -164,59 +200,67 @@ body {
   border-color: var(--border);
 }
 
-/* ── Flight card ── */
+/* ── Hero card ── */
 .hero-card {
-  border: 1px solid var(--border);
+  border: 1px solid rgba(124, 109, 255, 0.25);
   border-radius: 20px;
   padding: 1.6rem;
-  background: linear-gradient(145deg, rgba(13, 21, 37, 0.96), rgba(6, 9, 15, 0.96));
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(30, 144, 255, 0.08);
+  background: linear-gradient(145deg, rgba(10, 15, 30, 0.97), rgba(4, 6, 14, 0.97));
+  box-shadow: 0 0 40px rgba(124, 109, 255, 0.08), 0 20px 50px rgba(0,0,0,0.5);
 }
 
 .card-tag {
-  display: inline-block;
-  border: 1px solid rgba(0, 212, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid rgba(57, 245, 160, 0.3);
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   padding: 0.18rem 0.7rem;
-  color: var(--accent-2);
-  margin-bottom: 1.2rem;
+  color: var(--accent-green);
+  margin-bottom: 1.3rem;
   text-transform: uppercase;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.07rem;
 }
 
-.flight-info {
+.card-tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  animation: blink 1.4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+.flight-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.3rem;
 }
 
-.airport {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.airport { display: flex; flex-direction: column; align-items: center; }
 
 .iata {
   font-family: "Orbitron", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: var(--text);
-  letter-spacing: 0.04rem;
 }
 
-.city {
-  font-size: 0.72rem;
-  color: var(--muted);
-}
+.city { font-size: 0.7rem; color: var(--muted); }
 
 .flight-path {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   padding: 0 0.4rem;
 }
 
@@ -228,31 +272,57 @@ body {
   flex-shrink: 0;
 }
 
-.flight-path .line {
+.dash-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  opacity: 0.5;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent) 0px,
+    var(--accent) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  opacity: 0.45;
 }
 
-.flight-path .plane-icon {
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  color: var(--accent-warm);
+.plane-emoji { font-size: 1.2rem; flex-shrink: 0; }
+
+.signal-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.status-list {
+.signal-item { display: flex; flex-direction: column; gap: 0.1rem; }
+
+.signal-label {
+  font-size: 0.65rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06rem;
+}
+
+.signal-value {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.chip-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  font-size: 0.85rem;
+  gap: 0.5rem;
+  font-size: 0.82rem;
   color: var(--text);
 }
 
 /* ── Sections ── */
-.section {
-  padding: 4rem 0;
-}
+.section { padding: 4.5rem 0; }
 
 .section h2 {
   margin-top: 0;
@@ -260,117 +330,103 @@ body {
   font-size: clamp(1.4rem, 3vw, 2rem);
 }
 
-.section p {
-  color: var(--muted);
-}
+.section p { color: var(--muted); }
+
+.section p strong { color: var(--text); }
 
 .section-alt {
-  background: rgba(255, 255, 255, 0.018);
+  background: rgba(255, 255, 255, 0.016);
   border-block: 1px solid var(--border);
 }
 
-/* ── Fleet cards ── */
+/* ── Cards ── */
 .cards-grid {
   display: grid;
   gap: 1.1rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  margin-top: 1.5rem;
 }
 
 .info-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 1.3rem;
+  padding: 1.4rem;
   transition: border-color 0.2s, transform 0.2s;
 }
 
 .info-card:hover {
-  border-color: rgba(30, 144, 255, 0.35);
+  border-color: rgba(124, 109, 255, 0.35);
   transform: translateY(-3px);
 }
 
-.aircraft-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
+.card-icon { font-size: 2rem; margin-bottom: 0.6rem; }
 
 .info-card h3 {
   margin: 0 0 0.5rem;
   font-family: "Orbitron", sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 
-/* ── Stats ── */
-.stat-wrap {
-  max-width: 760px;
-}
+/* ── Timeline ── */
+.stat-wrap { max-width: 720px; }
 
-.stats-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 1.5rem 0 2rem;
-}
-
-.stat {
+.timeline {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0;
 }
 
-.stat-num {
-  font-family: "Orbitron", sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
+.tl-item {
+  display: flex;
+  gap: 1.2rem;
+  padding-bottom: 2rem;
+  position: relative;
 }
 
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
+.tl-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 16px;
+  width: 1px;
+  bottom: 0;
+  background: var(--border);
 }
 
-.altitude-meter {
-  margin-top: 1.5rem;
+.tl-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--bg);
+  flex-shrink: 0;
+  margin-top: 3px;
+  position: relative;
+  z-index: 1;
 }
 
-.meter-label {
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-bottom: 0.4rem;
-  margin-top: 0;
+.tl-dot.accent {
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
 }
 
-.meter {
-  height: 18px;
-  width: 100%;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  overflow: hidden;
-}
+.tl-body { flex: 1; }
 
-.meter-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  border-radius: 999px;
-}
-
-.score {
-  font-weight: 700;
+.tl-body strong {
+  display: block;
   color: var(--text);
-  margin-bottom: 0;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.tl-body p {
+  margin: 0;
   font-size: 0.9rem;
 }
 
-/* ── Book ── */
-.join-box {
-  text-align: center;
-}
+/* ── Community ── */
+.join-box { text-align: center; }
 
 .join-form {
   display: flex;
@@ -391,25 +447,21 @@ body {
   outline: none;
 }
 
-.join-form input:focus {
-  border-color: var(--accent);
-}
+.join-form input:focus { border-color: var(--accent); }
 
 .join-form button {
   border: none;
   border-radius: 999px;
-  padding: 0.75rem 1.2rem;
+  padding: 0.75rem 1.3rem;
   font-weight: 700;
   font-size: 0.9rem;
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  color: #020d1f;
+  color: #04060e;
   cursor: pointer;
   transition: opacity 0.2s;
 }
 
-.join-form button:hover {
-  opacity: 0.88;
-}
+.join-form button:hover { opacity: 0.86; }
 
 /* ── Footer ── */
 .site-footer {
@@ -420,7 +472,7 @@ body {
 .footer-wrap {
   text-align: center;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.83rem;
 }
 
 .sr-only {
@@ -442,15 +494,7 @@ body {
     gap: 0.5rem;
   }
 
-  .hero {
-    padding-top: 4.5rem;
-  }
+  .hero { padding-top: 4.5rem; }
 
-  .stats-row {
-    gap: 1rem;
-  }
-
-  .stat-num {
-    font-size: 1.6rem;
-  }
+  .signal-row { grid-template-columns: 1fr 1fr; }
 }

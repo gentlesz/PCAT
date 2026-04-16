@@ -32,6 +32,14 @@ body {
   pointer-events: none;
 }
 
+.loader-logo {
+  width: clamp(80px, 15vw, 140px);
+  height: clamp(80px, 15vw, 140px);
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
 .loader-title {
   font-family: "Orbitron", sans-serif;
   font-size: clamp(3.5rem, 14vw, 10rem);
@@ -95,6 +103,16 @@ body {
   font-weight: 800;
   letter-spacing: 0.06rem;
   font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .nav-links {

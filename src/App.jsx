@@ -56,6 +56,7 @@ function App() {
       {/* ── Loading screen ── */}
       {!loaded && (
         <div className={`loader ${hiding ? 'loader--hide' : ''}`}>
+          <img src="/stuff/Plogo.jpg" alt="PCAT logo" className="loader-logo" />
           <p className="loader-title">PILOTCAT</p>
           <div className="loader-bar-wrap">
             <div className="loader-bar" style={{ width: `${progress}%` }} />
@@ -66,7 +67,10 @@ function App() {
 
       <header className="site-header">
         <div className="container nav-wrap">
-          <a className="brand" href="#">✈ $PCAT</a>
+          <a className="brand" href="#">
+            <img src="/stuff/Plogo.jpg" alt="PCAT logo" className="nav-logo" />
+            ✈ $PCAT
+          </a>
           <nav>
             <ul className="nav-links">
               <li><a href="#story">Origin</a></li>

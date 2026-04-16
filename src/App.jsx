@@ -117,37 +117,44 @@ function App() {
 
         {/* ── 2. Origin + Historic Cat ── */}
         <section id="story" className="story-section">
-          <div className="container story-inner">
+          <div className="container">
             <p className="story-label reveal">Origin · Historic Cat</p>
-            <p className="story-text reveal">
-              <strong>Noland Arbaugh</strong> was the first human to receive a Neuralink
-              brain-computer interface implant. Paralysed below the shoulders, the
-              N1 chip restored his ability to interact with the digital world using
-              only his mind.
-            </p>
-            <p className="story-text reveal">
-              On a flight to Austin, he used that implant mid-air — no hands, no
-              keyboard — to create <strong>$PCAT</strong>: the Pilot Cat meme.
-              A cat piloting the plane. A human piloting the future.
-            </p>
-            <p className="story-text reveal">
-              Doge had a Shiba. Pepe had a frog. $PCAT has the first creature born
-              from a human mind interfaced with a computer at 35,000 feet. That's
-              not just a meme. That's a timestamp on a new era.
-            </p>
-            <p className="story-text reveal">
-              Most meme coins are built on nothing. Every part of this story is
-              real — the cat, the flight, the Neuralink, the quote. And somehow,
-              it has never had a proper run. No organised community. No real launch.
-              A historic cat, sitting quietly, waiting.
-            </p>
+            <div className="story-grid">
+              <div className="story-paras">
+                <p className="story-text reveal">
+                  <strong>Noland Arbaugh</strong> was the first human to receive a Neuralink
+                  brain-computer interface implant. Paralysed below the shoulders, the
+                  N1 chip restored his ability to interact with the digital world using
+                  only his mind.
+                </p>
+                <p className="story-text reveal">
+                  On a flight to Austin, he used that implant mid-air — no hands, no
+                  keyboard — to create <strong>$PCAT</strong>: the Pilot Cat meme.
+                  A cat piloting the plane. A human piloting the future.
+                </p>
+                <p className="story-text reveal">
+                  Doge had a Shiba. Pepe had a frog. $PCAT has the first creature born
+                  from a human mind interfaced with a computer at 35,000 feet. That's
+                  not just a meme. That's a timestamp on a new era.
+                </p>
+                <p className="story-text reveal">
+                  Most meme coins are built on nothing. Every part of this story is
+                  real — the cat, the flight, the Neuralink, the quote. And somehow,
+                  it has never had a proper run. No organised community. No real launch.
+                  A historic cat, sitting quietly, waiting.
+                </p>
+              </div>
+              <div className="story-video reveal">
+                <video src="/stuff/intro.mp4" autoPlay loop muted playsInline />
+              </div>
+            </div>
           </div>
         </section>
 
         {/* ── 3. The Moment ── */}
-        <section id="moment" className="section">
+        <section id="moment" className="section section-center">
           <div className="container">
-            <h2 className="reveal">The Moment</h2>
+            <h2 className="reveal section-heading-big">The Moment</h2>
             <div className="cards-grid">
               <article className="info-card reveal">
                 <div className="card-icon">🧠</div>
@@ -178,9 +185,9 @@ function App() {
         </section>
 
         {/* ── 4. Timeline ── */}
-        <section id="timeline" className="section">
+        <section id="timeline" className="section section-center">
           <div className="container text-block">
-            <h2 className="reveal">How It Happened</h2>
+            <h2 className="reveal section-heading-big">How It Happened</h2>
             <div className="timeline">
               <div className="tl-item reveal">
                 <span className="tl-dot" />

@@ -292,7 +292,7 @@ body {
   color: #ffffff;
 }
 
-/* ── Story section (centred, full viewport) ── */
+/* ── Story section ── */
 .story-section {
   min-height: 100vh;
   display: flex;
@@ -300,39 +300,57 @@ body {
   padding: 6rem 0;
 }
 
-.story-inner {
-  max-width: 780px;
-  margin-inline: auto;
+.story-label {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-weight: 800;
+  color: #ffffff;
   text-align: center;
+  margin: 0 0 3.5rem;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
 }
 
-.story-label {
-  color: #555555;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12rem;
-  margin-bottom: 3rem;
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
 }
+
+.story-paras { text-align: left; }
 
 .story-text {
-  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
   color: #aaaaaa;
-  line-height: 1.75;
-  margin: 0 0 2.2rem;
-  max-width: 68ch;
-  margin-inline: auto;
+  line-height: 1.8;
+  margin: 0 0 2rem;
 }
 
 .story-text strong { color: #ffffff; }
 
-/* stagger each paragraph */
-.story-text:nth-child(2) { transition-delay: 0s; }
-.story-text:nth-child(3) { transition-delay: 0.12s; }
-.story-text:nth-child(4) { transition-delay: 0.24s; }
-.story-text:nth-child(5) { transition-delay: 0.36s; }
+.story-text:nth-child(1) { transition-delay: 0s; }
+.story-text:nth-child(2) { transition-delay: 0.1s; }
+.story-text:nth-child(3) { transition-delay: 0.2s; }
+.story-text:nth-child(4) { transition-delay: 0.3s; }
+
+.story-video video {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+  .story-video { order: -1; }
+}
 
 /* ── Sections ── */
 .section { padding: 5rem 0; }
+
+.section-center { text-align: center; }
 
 .section h2 {
   margin-top: 0;
@@ -340,6 +358,14 @@ body {
   font-family: "Orbitron", sans-serif;
   font-size: clamp(1.3rem, 3vw, 1.9rem);
   color: #888888;
+}
+
+.section-heading-big {
+  font-size: clamp(2.4rem, 6vw, 5rem) !important;
+  color: #ffffff !important;
+  margin-bottom: 2.5rem !important;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
 }
 
 .section p {

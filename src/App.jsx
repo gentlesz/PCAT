@@ -1,25 +1,69 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [progress, setProgress] = useState(0);
+  const [hiding, setHiding] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
+    const video = document.createElement('video');
+    video.preload = 'auto';
+    video.src = '/stuff/11.mp4';
+
+    let minDone = false;
+    let videoDone = false;
+
+    const tryComplete = () => {
+      if (minDone && videoDone) {
+        setProgress(100);
+        setTimeout(() => setHiding(true), 400);
+        setTimeout(() => setLoaded(true), 1000);
+      }
+    };
+
+    setTimeout(() => { minDone = true; tryComplete(); }, 1800);
+
+    video.addEventListener('progress', () => {
+      if (video.buffered.length > 0 && video.duration) {
+        const pct = (video.buffered.end(video.buffered.length - 1) / video.duration) * 100;
+        setProgress(Math.min(Math.round(pct), 95));
+      }
+    });
+
+    video.addEventListener('canplaythrough', () => { videoDone = true; tryComplete(); });
+    video.addEventListener('error', () => { videoDone = true; tryComplete(); });
+
+    return () => { video.src = ''; };
+  }, []);
+
+  useEffect(() => {
+    if (!loaded) return;
     const els = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('revealed');
-            observer.unobserve(e.target);
-          }
+          if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }
         });
       },
       { threshold: 0.15 }
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [loaded]);
 
   return (
     <>
+      {/* ── Loading screen ── */}
+      {!loaded && (
+        <div className={`loader ${hiding ? 'loader--hide' : ''}`}>
+          <p className="loader-title">PILOTCAT</p>
+          <div className="loader-bar-wrap">
+            <div className="loader-bar" style={{ width: `${progress}%` }} />
+          </div>
+          <p className="loader-pct">{progress}%</p>
+        </div>
+      )}
+
       <header className="site-header">
         <div className="container nav-wrap">
           <a className="brand" href="#">✈ $PCAT</a>
@@ -45,34 +89,29 @@ function App() {
           </div>
           <div className="container hero-grid">
             <div className="hero-copy">
-            <p className="eyebrow reveal">✈ 35,000 ft · En Route to Austin</p>
-            <h1 className="reveal">The First<br /><span>Mind-Made</span><br />Meme</h1>
-            <p className="hero-sub reveal">
-              Created mid-flight by <strong>Noland Arbaugh</strong> — the first
-              Neuralink human implant recipient — using only his thoughts.
-            </p>
-            <blockquote className="quote reveal">
-              "Pretty sure this is a first. Not long ago this would have been impossible."
-              <cite>— Noland Arbaugh</cite>
-            </blockquote>
-            <div className="cta-row reveal">
-              <a className="btn btn-primary" href="#story">Read the Story</a>
-              <a className="btn btn-tweet" href="https://x.com/ModdedQuad/status/1803673635250642987" target="_blank" rel="noreferrer">The Tweet</a>
-            </div>
+              <p className="eyebrow reveal">✈ 35,000 ft · En Route to Austin</p>
+              <h1 className="hero-title reveal">PILOT CAT</h1>
+              <p className="hero-subtitle reveal">The First Mind-Made Meme</p>
+              <p className="hero-sub reveal">
+                Created mid-flight by <strong>Noland Arbaugh</strong> — the first
+                Neuralink human implant recipient — using only his thoughts.
+              </p>
+              <blockquote className="quote reveal">
+                "Pretty sure this is a first. Not long ago this would have been impossible."
+                <cite>— Noland Arbaugh</cite>
+              </blockquote>
+              <div className="cta-row reveal">
+                <a className="btn btn-primary" href="#story">Read the Story</a>
+                <a className="btn btn-tweet" href="https://x.com/ModdedQuad/status/1803673635250642987" target="_blank" rel="noreferrer">The Tweet</a>
+              </div>
             </div>
             <div className="hero-video reveal">
-              <video
-                src="/stuff/pcat-side1o.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
+              <video src="/stuff/11.mp4" autoPlay loop muted playsInline />
             </div>
           </div>
         </section>
 
-        {/* ── 2. Origin + Historic Cat (centred, full viewport) ── */}
+        {/* ── 2. Origin + Historic Cat ── */}
         <section id="story" className="story-section">
           <div className="container story-inner">
             <p className="story-label reveal">Origin · Historic Cat</p>
@@ -101,7 +140,7 @@ function App() {
           </div>
         </section>
 
-        {/* ── 3. The Moment — 3 cards ── */}
+        {/* ── 3. The Moment ── */}
         <section id="moment" className="section">
           <div className="container">
             <h2 className="reveal">The Moment</h2>

@@ -347,6 +347,31 @@ body {
   .story-video { order: -1; }
 }
 
+/* ── Elon & Noland two-column ── */
+.elon-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.elon-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.elon-col .story-text {
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .elon-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
 /* ── Sections ── */
 .section { padding: 5rem 0; }
 

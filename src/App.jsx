@@ -165,8 +165,8 @@ function App() {
         <section id="elon" className="story-section">
           <div className="container">
             <p className="story-label reveal">Elon & Noland</p>
-            <div className="story-grid">
-              <div className="story-paras">
+            <div className="elon-grid">
+              <div className="elon-col">
                 <p className="story-text reveal">
                   <strong>Elon Musk</strong> is the co-founder and funder behind Neuralink -
                   the company that gave Noland his implant. Without Elon, there is no chip.
@@ -184,14 +184,14 @@ function App() {
                   to people who had lost it. The two exchanged multiple public replies on X,
                   with Elon engaging directly on Noland's posts about his daily life with the implant.
                 </p>
+              </div>
+              <div className="elon-col">
                 <p className="story-text reveal">
                   When Noland posted about creating $PCAT mid-flight, this moment existed
                   entirely within the ecosystem Elon built - X as the platform, Neuralink
                   as the interface. The meme was born inside Elon's universe, powered by
                   Elon's technology, announced on Elon's network.
                 </p>
-              </div>
-              <div className="story-paras">
                 <p className="story-text reveal">
                   That is not a coincidence. That is a convergence. Two of the most ambitious
                   projects of the 21st century - brain-computer interfaces and a reimagined

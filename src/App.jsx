@@ -11,7 +11,7 @@ function App() {
               <li><a href="#origin">Origin</a></li>
               <li><a href="#moment">The Moment</a></li>
               <li><a href="#why">Why It Matters</a></li>
-              <li><a href="#community">Community</a></li>
+              <li><a href="#community">The Run</a></li>
             </ul>
           </nav>
         </div>
@@ -102,6 +102,13 @@ function App() {
               the world — that the boundary between human thought and digital
               action had been crossed, at altitude, casually, irreversibly.
             </p>
+            <p>
+              Most meme coins are built on nothing. $PCAT is built on one of the
+              most documented, verifiable, and genuinely astonishing moments in
+              the history of human-computer interaction. The cat exists. The
+              flight exists. The Neuralink exists. The quote exists. Every part
+              of this story is real.
+            </p>
             <div className="timeline">
               <div className="tl-item">
                 <span className="tl-dot" />
@@ -131,16 +138,52 @@ function App() {
                   <p>A meme becomes a movement — a symbol of the neural era.</p>
                 </div>
               </div>
+              <div className="tl-item">
+                <span className="tl-dot" />
+                <div className="tl-body">
+                  <strong>No proper run. Yet.</strong>
+                  <p>
+                    Despite the story being one of the most culturally significant
+                    moments of the decade, $PCAT has never had its moment on-chain.
+                    No proper launch. No real community push. A historic cat,
+                    sitting quietly, waiting.
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container stat-wrap">
+            <h2>A Historic Cat</h2>
+            <p>
+              Every great memecoin needs a reason to exist beyond the ticker.
+              $PCAT has one of the strongest reasons in the space — a cat that
+              was literally summoned into existence by a paralysed man's thoughts,
+              mid-air, using a chip in his brain, in a moment that made global
+              headlines.
+            </p>
+            <p>
+              Doge had a Shiba. Pepe had a frog. $PCAT has the first creature
+              born from a human mind interfaced with a computer at 35,000 feet.
+              That's not just a meme. That's a timestamp on the beginning of a
+              new era of human capability.
+            </p>
+            <p>
+              And somehow, the coin has never had a proper run. No organised
+              community. No real launchpad. No moment where the internet looked
+              at the lore and said — this deserves to go. That changes now.
+            </p>
           </div>
         </section>
 
         <section id="community" className="section section-alt">
           <div className="container join-box">
-            <h2>Join the Neural Era</h2>
+            <h2>The Run It Never Had</h2>
             <p>
-              $PCAT is more than a meme. It's a timestamp — proof that the
-              future arrived mid-flight.
+              $PCAT is the most historically grounded memecoin that has never
+              been given a fair shot. This is that shot.
             </p>
             <form className="join-form" action="#" method="post">
               <label htmlFor="email" className="sr-only">Email address</label>

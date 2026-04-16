@@ -43,7 +43,8 @@ function App() {
             <div className="node n4" /><div className="node n5" />
             <div className="edge e1" /><div className="edge e2" /><div className="edge e3" />
           </div>
-          <div className="container hero-copy">
+          <div className="container hero-grid">
+            <div className="hero-copy">
             <p className="eyebrow reveal">✈ 35,000 ft · En Route to Austin</p>
             <h1 className="reveal">The First<br /><span>Mind-Made</span><br />Meme</h1>
             <p className="hero-sub reveal">
@@ -56,7 +57,17 @@ function App() {
             </blockquote>
             <div className="cta-row reveal">
               <a className="btn btn-primary" href="#story">Read the Story</a>
-              <a className="btn btn-ghost" href="https://x.com/ModdedQuad/status/1803673635250642987" target="_blank" rel="noreferrer">The Tweet</a>
+              <a className="btn btn-tweet" href="https://x.com/ModdedQuad/status/1803673635250642987" target="_blank" rel="noreferrer">The Tweet</a>
+            </div>
+            </div>
+            <div className="hero-video reveal">
+              <video
+                src="/stuff/pcat-side1o.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
             </div>
           </div>
         </section>

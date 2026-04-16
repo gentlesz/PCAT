@@ -24,8 +24,7 @@ function App() {
             <div className="node n4" /><div className="node n5" />
             <div className="edge e1" /><div className="edge e2" /><div className="edge e3" />
           </div>
-          <div className="container hero-grid">
-            <div className="hero-copy">
+          <div className="container hero-copy">
               <p className="eyebrow">✈ 35,000 ft · En Route to Austin</p>
               <h1>
                 The First<br /><span>Mind-Made</span><br />Meme
@@ -43,46 +42,6 @@ function App() {
                 <a className="btn btn-primary" href="#moment">Read the Story</a>
                 <a className="btn btn-ghost" href="#community">Join the Community</a>
               </div>
-            </div>
-            <div className="hero-card">
-              <p className="card-tag">Signal Locked · Live</p>
-              <div className="flight-row">
-                <div className="airport">
-                  <span className="iata">???</span>
-                  <span className="city">Origin</span>
-                </div>
-                <div className="flight-path">
-                  <span className="dot" />
-                  <span className="dash-line" />
-                  <span className="plane-emoji">✈</span>
-                  <span className="dash-line" />
-                  <span className="dot" />
-                </div>
-                <div className="airport">
-                  <span className="iata">AUS</span>
-                  <span className="city">Austin, TX</span>
-                </div>
-              </div>
-              <div className="signal-row">
-                <div className="signal-item">
-                  <span className="signal-label">Interface</span>
-                  <span className="signal-value">Neuralink N1</span>
-                </div>
-                <div className="signal-item">
-                  <span className="signal-label">Input</span>
-                  <span className="signal-value">Thought only</span>
-                </div>
-                <div className="signal-item">
-                  <span className="signal-label">Result</span>
-                  <span className="signal-value">$PCAT born</span>
-                </div>
-              </div>
-              <div className="chip-row">
-                <span>🧠 BCI Active</span>
-                <span>✈ In-flight</span>
-                <span>🐱 History made</span>
-              </div>
-            </div>
           </div>
         </section>
 

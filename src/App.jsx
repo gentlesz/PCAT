@@ -6,34 +6,43 @@ function App() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const video = document.createElement('video');
-    video.preload = 'auto';
-    video.src = '/stuff/11.mp4';
-
-    let minDone = false;
+    let frame;
+    let sim = 0;
     let videoDone = false;
+    let pageDone = false;
+
+    // Animate bar immediately from 0 towards 90, easing and slowing down
+    const animate = () => {
+      sim += (90 - sim) * 0.025;
+      setProgress(Math.min(Math.round(sim), 90));
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
 
     const tryComplete = () => {
-      if (minDone && videoDone) {
+      if (videoDone && pageDone) {
+        cancelAnimationFrame(frame);
         setProgress(100);
         setTimeout(() => setHiding(true), 400);
         setTimeout(() => setLoaded(true), 1000);
       }
     };
 
-    setTimeout(() => { minDone = true; tryComplete(); }, 1800);
-
-    video.addEventListener('progress', () => {
-      if (video.buffered.length > 0 && video.duration) {
-        const pct = (video.buffered.end(video.buffered.length - 1) / video.duration) * 100;
-        setProgress(Math.min(Math.round(pct), 95));
-      }
-    });
-
+    // Track video readiness
+    const video = document.createElement('video');
+    video.preload = 'auto';
+    video.src = '/stuff/11.mp4';
     video.addEventListener('canplaythrough', () => { videoDone = true; tryComplete(); });
     video.addEventListener('error', () => { videoDone = true; tryComplete(); });
 
-    return () => { video.src = ''; };
+    // Track full page load
+    if (document.readyState === 'complete') {
+      pageDone = true;
+    } else {
+      window.addEventListener('load', () => { pageDone = true; tryComplete(); }, { once: true });
+    }
+
+    return () => { cancelAnimationFrame(frame); video.src = ''; };
   }, []);
 
   useEffect(() => {
@@ -53,7 +62,7 @@ function App() {
 
   return (
     <>
-      {/* ── Loading screen ── */}
+      {/* Loading screen */}
       {!loaded && (
         <div className={`loader ${hiding ? 'loader--hide' : ''}`}>
           <img src="/stuff/Plogo.jpg" alt="PCAT logo" className="loader-logo" />
@@ -74,6 +83,7 @@ function App() {
           <nav>
             <ul className="nav-links">
               <li><a href="#story">Origin</a></li>
+              <li><a href="#elon">Elon & Noland</a></li>
               <li><a href="#moment">The Moment</a></li>
               <li><a href="#timeline">Timeline</a></li>
               <li><a href="https://t.me/" target="_blank" rel="noreferrer">Telegram</a></li>
@@ -84,7 +94,7 @@ function App() {
 
       <main>
 
-        {/* ── 1. Hero ── */}
+        {/* 1. Hero */}
         <section className="hero">
           <div className="neural-bg" aria-hidden="true">
             <div className="node n1" /><div className="node n2" /><div className="node n3" />
@@ -97,12 +107,12 @@ function App() {
               <h1 className="hero-title reveal">PILOT CAT</h1>
               <p className="hero-subtitle reveal">The First Mind-Made Meme</p>
               <p className="hero-sub reveal">
-                Created mid-flight by <strong>Noland Arbaugh</strong> — the first
-                Neuralink human implant recipient — using only his thoughts.
+                Created mid-flight by <strong>Noland Arbaugh</strong> - the first
+                Neuralink human implant recipient - using only his thoughts.
               </p>
               <blockquote className="quote reveal">
                 "Pretty sure this is a first. Not long ago this would have been impossible."
-                <cite>— Noland Arbaugh</cite>
+                <cite>- Noland Arbaugh</cite>
               </blockquote>
               <div className="cta-row reveal">
                 <a className="btn btn-primary" href="#story">Read the Story</a>
@@ -115,7 +125,7 @@ function App() {
           </div>
         </section>
 
-        {/* ── 2. Origin + Historic Cat ── */}
+        {/* 2. Origin + Historic Cat */}
         <section id="story" className="story-section">
           <div className="container">
             <p className="story-label reveal">Origin · Historic Cat</p>
@@ -128,9 +138,9 @@ function App() {
                   only his mind.
                 </p>
                 <p className="story-text reveal">
-                  On a flight to Austin, he used that implant mid-air — no hands, no
-                  keyboard — to create <strong>$PCAT</strong>: the Pilot Cat meme.
-                  A cat piloting the plane. A human piloting the future.
+                  On a flight to Austin, he used that implant mid-air - no hands, no
+                  keyboard - to create the Pilot Cat meme. A cat piloting the plane
+                  with its moustache drawn through mind.
                 </p>
                 <p className="story-text reveal">
                   Doge had a Shiba. Pepe had a frog. $PCAT has the first creature born
@@ -139,7 +149,7 @@ function App() {
                 </p>
                 <p className="story-text reveal">
                   Most meme coins are built on nothing. Every part of this story is
-                  real — the cat, the flight, the Neuralink, the quote. And somehow,
+                  real - the cat, the flight, the Neuralink, the quote. And somehow,
                   it has never had a proper run. No organised community. No real launch.
                   A historic cat, sitting quietly, waiting.
                 </p>
@@ -151,7 +161,53 @@ function App() {
           </div>
         </section>
 
-        {/* ── 3. The Moment ── */}
+        {/* 3. Elon & Noland */}
+        <section id="elon" className="story-section">
+          <div className="container">
+            <p className="story-label reveal">Elon & Noland</p>
+            <div className="elon-grid">
+              <div className="elon-col">
+                <p className="story-text reveal">
+                  <strong>Elon Musk</strong> is the co-founder and funder behind Neuralink -
+                  the company that gave Noland his implant. Without Elon, there is no chip.
+                  Without the chip, there is no $PCAT. The connection runs deeper than most people realise.
+                </p>
+                <p className="story-text reveal">
+                  When Noland went public with his Neuralink experience, Elon was one of the
+                  first to amplify it. He reposted Noland's videos on X, replied directly to
+                  his updates, and publicly celebrated each milestone - from Noland's first
+                  cursor movement to his online gaming sessions, all controlled by thought alone.
+                </p>
+                <p className="story-text reveal">
+                  Elon called the technology "profound" and expressed personal pride in what
+                  Noland represented - proof that Neuralink could genuinely restore freedom
+                  to people who had lost it. The two exchanged multiple public replies on X,
+                  with Elon engaging directly on Noland's posts about his daily life with the implant.
+                </p>
+              </div>
+              <div className="elon-col">
+                <p className="story-text reveal">
+                  When Noland posted about creating $PCAT mid-flight, this moment existed
+                  entirely within the ecosystem Elon built - X as the platform, Neuralink
+                  as the interface. The meme was born inside Elon's universe, powered by
+                  Elon's technology, announced on Elon's network.
+                </p>
+                <p className="story-text reveal">
+                  That is not a coincidence. That is a convergence. Two of the most ambitious
+                  projects of the 21st century - brain-computer interfaces and a reimagined
+                  internet - met in a single moment at 35,000 feet, and produced a cat.
+                </p>
+                <p className="story-text reveal">
+                  No other memecoin can claim its origin runs through both the man rebuilding
+                  human communication and the man rebuilding human capability. $PCAT is the
+                  only token that sits at that exact crossroads.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. The Moment */}
         <section id="moment" className="section section-center">
           <div className="container">
             <h2 className="reveal section-heading-big">The Moment</h2>
@@ -161,7 +217,7 @@ function App() {
                 <h3>Neuralink Implant</h3>
                 <p>
                   The N1 chip interfaces directly with the motor cortex, translating
-                  neural intent into digital commands — no physical movement required.
+                  neural intent into digital commands - no physical movement required.
                 </p>
               </article>
               <article className="info-card reveal">
@@ -169,7 +225,7 @@ function App() {
                 <h3>Mid-Flight Creation</h3>
                 <p>
                   At cruising altitude en route to Austin, Noland used his implant
-                  to interact with the internet — a world first at 35,000 ft.
+                  to interact with the internet - a world first at 35,000 ft.
                 </p>
               </article>
               <article className="info-card reveal">
@@ -184,7 +240,7 @@ function App() {
           </div>
         </section>
 
-        {/* ── 4. Timeline ── */}
+        {/* 5. Timeline */}
         <section id="timeline" className="section section-center">
           <div className="container text-block">
             <h2 className="reveal section-heading-big">How It Happened</h2>
@@ -194,6 +250,13 @@ function App() {
                 <div className="tl-body">
                   <strong>Jan 2024</strong>
                   <p>Noland Arbaugh becomes the first Neuralink human implant recipient.</p>
+                </div>
+              </div>
+              <div className="tl-item reveal">
+                <span className="tl-dot" />
+                <div className="tl-body">
+                  <strong>Elon amplifies</strong>
+                  <p>Elon Musk reposts and replies to Noland's updates on X, publicly celebrating each milestone.</p>
                 </div>
               </div>
               <div className="tl-item reveal">
@@ -214,7 +277,7 @@ function App() {
                 <span className="tl-dot" />
                 <div className="tl-body">
                   <strong>The internet reacts</strong>
-                  <p>A meme becomes a movement — a symbol of the neural era.</p>
+                  <p>A meme becomes a movement - a symbol of the neural era.</p>
                 </div>
               </div>
               <div className="tl-item reveal">

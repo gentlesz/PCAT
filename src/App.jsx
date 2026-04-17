@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
+const CA = 'TBA';
+
+function copyCA() {
+  navigator.clipboard.writeText(CA).catch(() => {});
+}
+
 function App() {
   const [progress, setProgress] = useState(0);
   const [hiding, setHiding] = useState(false);
@@ -117,6 +123,11 @@ function App() {
               <div className="cta-row reveal">
                 <a className="btn btn-primary" href="#story">Read the Story</a>
                 <a className="btn btn-tweet" href="https://x.com/ModdedQuad/status/1803673635250642987" target="_blank" rel="noreferrer">The Tweet</a>
+              </div>
+              <div className="ca-row reveal">
+                <span className="ca-label">CA</span>
+                <span className="ca-address">{CA}</span>
+                <button className="ca-copy" onClick={copyCA} aria-label="Copy contract address">Copy</button>
               </div>
             </div>
             <div className="hero-video reveal">

@@ -125,7 +125,7 @@ function App() {
                 <a className="btn btn-tweet" href="https://x.com/ModdedQuad/status/1803673635250642987" target="_blank" rel="noreferrer">The Tweet</a>
               </div>
               <div className="ca-row reveal">
-                <span className="ca-label">CA</span>
+                <span className="ca-label">CA:</span>
                 <span className="ca-address">{CA}</span>
                 <button className="ca-copy" onClick={copyCA} aria-label="Copy contract address">Copy</button>
               </div>

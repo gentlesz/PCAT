@@ -349,7 +349,7 @@ body {
 
 .story-label {
   font-family: "Orbitron", sans-serif;
-  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-size: clamp(1.6rem, 7vw, 5rem);
   font-weight: 800;
   color: #ffffff;
   text-align: center;
@@ -433,7 +433,7 @@ body {
 }
 
 .section-heading-big {
-  font-size: clamp(2.4rem, 6vw, 5rem) !important;
+  font-size: clamp(1.6rem, 7vw, 5rem) !important;
   color: #ffffff !important;
   margin-bottom: 2.5rem !important;
   letter-spacing: 0.02em;
@@ -528,7 +528,7 @@ body {
   display: block;
   color: #ffffff;
   font-family: "Orbitron", sans-serif;
-  font-size: clamp(1.6rem, 3.5vw, 2.7rem);
+  font-size: clamp(1.1rem, 4vw, 2.7rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 0.8rem;
@@ -564,14 +564,49 @@ body {
   border: 0;
 }
 
+/* ── Mobile ── */
 @media (max-width: 700px) {
+
+  /* Nav */
   .nav-wrap {
     flex-direction: column;
-    padding: 0.85rem 0;
+    padding: 0.75rem 0;
     gap: 0.5rem;
   }
+  .brand { font-size: 0.95rem; }
+  .nav-links { gap: 0.7rem; flex-wrap: wrap; justify-content: center; }
+  .nav-links a { font-size: 0.78rem; }
 
-  .hero { padding-top: 4.5rem; }
+  /* Hero */
+  .hero { padding: 3rem 0 2.5rem; }
+  .hero-title { font-size: clamp(2.2rem, 11vw, 3rem); }
+  .hero-subtitle { font-size: 0.82rem; }
+  .hero-sub { font-size: 0.95rem; max-width: 100%; }
+  .quote { font-size: 0.88rem; }
+  .ca-row { width: 100%; }
+  .ca-address { font-size: 0.7rem; }
 
-  .story-text { font-size: 1.1rem; }
+  /* Story sections */
+  .story-section { min-height: auto; padding: 3.5rem 0; }
+  .story-label { margin-bottom: 2rem; }
+  .story-text { font-size: 1rem; margin-bottom: 1.4rem; line-height: 1.7; }
+
+  /* Elon grid */
+  .elon-grid { gap: 0; }
+  .elon-col { gap: 1.4rem; }
+  .elon-col:first-child { margin-bottom: 1.4rem; }
+
+  /* Sections */
+  .section { padding: 3rem 0; }
+  .section-heading-big { margin-bottom: 1.5rem !important; }
+
+  /* Cards */
+  .cards-grid { gap: 1.5rem; }
+
+  /* Timeline */
+  .timeline { margin-top: 1.5rem; }
+  .tl-item { gap: 1.2rem; padding-bottom: 2.5rem; }
+  .tl-dot { width: 14px; height: 14px; margin-top: 0.5rem; }
+  .tl-item:not(:last-child)::before { left: 6px; top: 14px; }
+  .tl-body p { font-size: 0.9rem; max-width: 100%; }
 }

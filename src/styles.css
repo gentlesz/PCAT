@@ -224,6 +224,7 @@ body {
   line-height: 1.05;
   color: #ffffff;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .hero-subtitle {
@@ -294,16 +295,14 @@ body {
   gap: 0.75rem;
   margin-top: 1.2rem;
   flex-wrap: wrap;
-  border: 1px solid #c9a84c;
-  border-radius: 10px;
-  padding: 0.55rem 1rem;
+  padding: 0;
 }
 
 .ca-label {
   font-family: "Orbitron", sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
-  color: #c9a84c;
+  color: #666666;
   letter-spacing: 0.08em;
   flex-shrink: 0;
 }
@@ -311,7 +310,7 @@ body {
 .ca-address {
   font-family: monospace;
   font-size: 0.85rem;
-  color: #cccccc;
+  color: #666666;
   letter-spacing: 0.03em;
   word-break: break-all;
   text-transform: uppercase;
@@ -319,20 +318,17 @@ body {
 
 .ca-copy {
   background: none;
-  border: 1px solid #333333;
-  color: #888888;
+  border: none;
+  color: #555555;
   font-size: 0.75rem;
   padding: 0.3rem 0.7rem;
   border-radius: 6px;
   cursor: pointer;
   flex-shrink: 0;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s;
 }
 
-.ca-copy:hover {
-  color: #ffffff;
-  border-color: #666666;
-}
+.ca-copy:hover { color: #aaaaaa; }
 
 .btn-tweet {
   background: #1d9bf0;

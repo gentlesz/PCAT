@@ -34,12 +34,15 @@ function App() {
       }
     };
 
-    // Track video readiness
+    // Track video readiness — use earliest available event, fallback after 5s
     const video = document.createElement('video');
     video.preload = 'auto';
     video.src = '/stuff/11.mp4';
-    video.addEventListener('canplaythrough', () => { videoDone = true; tryComplete(); });
-    video.addEventListener('error', () => { videoDone = true; tryComplete(); });
+    const markVideoDone = () => { if (!videoDone) { videoDone = true; tryComplete(); } };
+    video.addEventListener('canplaythrough', markVideoDone);
+    video.addEventListener('loadeddata', markVideoDone);
+    video.addEventListener('error', markVideoDone);
+    const videoTimeout = setTimeout(markVideoDone, 5000);
 
     // Track full page load
     if (document.readyState === 'complete') {
@@ -47,8 +50,9 @@ function App() {
     } else {
       window.addEventListener('load', () => { pageDone = true; tryComplete(); }, { once: true });
     }
+    const pageTimeout = setTimeout(() => { pageDone = true; tryComplete(); }, 6000);
 
-    return () => { cancelAnimationFrame(frame); video.src = ''; };
+    return () => { cancelAnimationFrame(frame); clearTimeout(videoTimeout); clearTimeout(pageTimeout); video.src = ''; };
   }, []);
 
   useEffect(() => {

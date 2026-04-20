@@ -92,7 +92,7 @@ function App() {
               <li><a href="#elon">Elon & Noland</a></li>
               <li><a href="#moment">The Moment</a></li>
               <li><a href="#timeline">Timeline</a></li>
-              <li><a href="https://t.me/" target="_blank" rel="noreferrer">Telegram</a></li>
+              <li><a href="https://t.me/PilotcatOnSol" target="_blank" rel="noreferrer">Telegram</a></li>
             </ul>
           </nav>
         </div>

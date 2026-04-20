@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const CA = 'TBA';
+const CA = '6Jv7XFs3pCp13WpkWogH2Gu9cyKYc4xLabDHDnvkpump';
 
 function copyCA() {
   navigator.clipboard.writeText(CA).catch(() => {});
